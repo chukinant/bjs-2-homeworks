@@ -33,10 +33,12 @@ class AlarmClock {
     }
 
     getCurrentFormattedTime() {
-        const currentTime = new Date();
-        let currentHour = currentTime.getHours();
-        let currentMinute = currentTime.getMinutes();
-        return `${currentHour}:${currentMinute}`;
+        const currentTime = new Date().toLocaleTimeString("ru-Ru", {
+            hour: "2-digit",
+            minute: "2-digit",
+            });
+            const [hour, minute] = currentTime.split(":");
+            return `${hour}:${minute}`;
     }
 
     start() {
